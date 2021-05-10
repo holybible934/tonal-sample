@@ -4,4 +4,5 @@ data class Movement(
     val id: String,
     val name: String,
     val bodyRegion: BodyRegion,
+    val thumbnailMediaUrl: String
 )
