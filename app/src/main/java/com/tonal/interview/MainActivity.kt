@@ -1,8 +1,6 @@
 package com.tonal.interview
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -42,7 +40,6 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             override fun onQueryTextChange(p0: String?): Boolean {
-                // Do nothing
                 return false
             }
         })
