@@ -4,6 +4,7 @@ import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tonal.interview.adapter.MainRecyclerViewAdapter
 import com.tonal.interview.viewmodel.MainActivityViewModel
@@ -19,8 +20,12 @@ class MainActivity : AppCompatActivity() {
         mainViewModel = MainActivityViewModel(DependencyInjection.movementRepository)
         mainViewModel.loadMovementList()
         mainViewModel.movementList.observe(this, {
-            Log.d(TAG, "onCreate: List Size is " + it.size)
+//            Log.d(TAG, "onCreate: List Size is " + it.size)
+            mainAdapter.submitList(it)
         })
         mainAdapter = MainRecyclerViewAdapter()
+        val recyclerView = findViewById<RecyclerView>(R.id.movements)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = mainAdapter
     }
 }
